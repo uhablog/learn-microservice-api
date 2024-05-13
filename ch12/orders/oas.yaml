@@ -65,6 +65,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GetOrderSchema'
+          links:
+            GetOrder:
+              operationId: getOrder
+              parameters:
+                order_id: '$response.body#/id'
+              description: >
+                The 'id' value returned in the response can be used as
+                the 'order_id' parameter in 'GET /orders/{order_id}'
         '422':
           $ref: '#/components/responses/UnprocessableEntity'
 
